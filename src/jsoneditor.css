@@ -1,0 +1,32 @@
+textarea{
+    border: none;
+    resize: none;
+    background-color:rgb(237, 249, 245);
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    font-weight: 600;
+    margin-left: 2rem;
+    
+}
+textarea::-webkit-scrollbar{
+    display: none;
+}
+textarea::placeholder{
+    font-style: italic;
+    font-size: 1rem;
+    padding-left: 10px;
+    color: gray
+}
+
+.json-editor{
+    background-color: rgb(237, 249, 245);
+    border: 2px solid aquamarine;
+    border-radius: 5px;
+}
+
+.json_title {
+    padding-left: 1rem;
+    font-size:1.2rem;
+    
+}

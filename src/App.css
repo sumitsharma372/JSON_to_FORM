@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+.app-container {
+  display: flex;
+  /* justify-conten; */
+  justify-content: center;
+  padding: 20px;
+}
+
+.json-editor {
+  width: 45%;
+}
+
+.json-editor textarea {
+  width: 100%;
+  height: 200px;
+}
+
+.form-preview {
+  width: 50%;
+}
+
+.tab-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab-container button {
+  padding: 8px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.tab-container button.active {
+  background-color: #f0f0f0;
+}
+
+

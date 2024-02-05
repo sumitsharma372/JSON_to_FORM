@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { Switch } from '@headlessui/react'
 import { Switch } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
@@ -36,6 +36,19 @@ const FormPreview = ({ uiSchema }) => {
     console.log(formData)
     alert(JSON.stringify(formData, null, 2));
   }
+
+  useEffect(() => {
+    // Set the selectedTab based on the default value of a radio button
+    const radioDefaultValue = uiSchema.find(
+      (element) => element.uiType === 'Radio'
+    )?.validate.defaultValue;
+  
+    if (radioDefaultValue) {
+      setSelectedTab(radioDefaultValue);
+    }
+
+    
+  }, [uiSchema]);
 
   const renderFormElements = (schema, parentConditions = []) => {
     if (!schema) return null;   
@@ -126,6 +139,7 @@ const FormPreview = ({ uiSchema }) => {
           );
         
         case 'Radio':
+                  // {setSelectedTab(element.validate.defaultValue)}
             return (
                 <div key={index} className="form-element radio">
                   <div style={{display:'flex', alignItems: 'center'}}>
@@ -141,7 +155,7 @@ const FormPreview = ({ uiSchema }) => {
               </div>
                   <div className="radio-options">
                     {element.validate.options.map((option, optionIndex) => (
-                      <div key={optionIndex} className={`radio-option ${selectedTab===option.value ? 'active': ''}`} style={{display:'flex'}}>
+                      <div key={optionIndex} className={`radio-option ${selectedTab === option.value ? 'active': ''}`} style={{display:'flex'}}>
                         <input
                           type="radio"
                           id={`${element.jsonKey}_${option.value}`}
